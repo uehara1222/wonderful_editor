@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Article, type: :model do
   context "タイトルがある場合" do
@@ -6,7 +6,6 @@ RSpec.describe Article, type: :model do
 
     it "記事を作れる" do
       article = build(:article)
-      binding.pry
       expect(article).to be_valid
     end
   end
@@ -14,7 +13,7 @@ RSpec.describe Article, type: :model do
   context "タイトルがない場合" do
     let!(:user) { create(:user) }
 
-    fit "記事を作れずエラーを返す" do
+    it "記事を作れずエラーを返す" do
       article = build(:article, title: nil)
       expect(article).to be_invalid
       expect(article.errors.details[:title][0][:error]).to eq :blank
