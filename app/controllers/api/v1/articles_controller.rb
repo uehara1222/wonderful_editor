@@ -1,5 +1,6 @@
 module Api::V1
   class ArticlesController < BaseApiController
+
     def index
       articles = Article.order(updated_at: :desc)
       render json: articles, each_serializer: Api::V1::ArticlePreviewSerializer
@@ -19,6 +20,11 @@ module Api::V1
       article = current_user.articles.find(params[:id])
       article.update!(article_params)
       render json: article, serializer: Api::V1::ArticleSerializer
+    end
+
+    def destroy
+      article = current_user.articles.find(params[:id])
+      article.destroy!
     end
 
     private
