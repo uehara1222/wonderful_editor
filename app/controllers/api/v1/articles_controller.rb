@@ -1,5 +1,5 @@
 module Api::V1
-  class ArticlesController < BaseApiController # base_api_controller を継承
+  class ArticlesController < BaseApiController
     def index
       articles = Article.order(updated_at: :desc)
       render json: articles, each_serializer: Api::V1::ArticlePreviewSerializer
@@ -12,6 +12,12 @@ module Api::V1
 
     def create
       article = current_user.articles.create!(article_params)
+      render json: article, serializer: Api::V1::ArticleSerializer
+    end
+
+    def update
+      article = current_user.articles.find(params[:id])
+      article.update!(article_params)
       render json: article, serializer: Api::V1::ArticleSerializer
     end
 
