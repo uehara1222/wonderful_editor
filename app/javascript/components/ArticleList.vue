@@ -1,17 +1,36 @@
-// This file is automatically compiled by Webpack, along with any other files
-// present in this directory. You're encouraged to place your actual application logic in
-// a relevant structure within app/javascript and only use these pack files to reference
-// that code so it'll be compiled.
+<template>
+  <div id="articles-container">
+    <div v-for="article in articles" v-bind:key="article.id">
+      <v-card class="mb-5" style="margin: 0 auto;" justify-center max-width="600" >
+          <v-card-title>{{article.title}}</v-card-title>
+          <v-divider class="mx-4"></v-divider>
+          <v-card-text>{{article.body}}</v-card-text>
+      </v-card>
+    </div>
+  </div>
+</template>
 
-require("@rails/ujs").start()
-require("turbolinks").start()
-require("@rails/activestorage").start()
-require("channels")
+<script>
+import axios from "axios";
+export default {
+  data() {
+    return {
+      articles: []
+    }
+  },
 
+  mounted() {
+    this.fetchArticles();
+  },
 
-// Uncomment to copy all static images under ../images to the output folder and reference
-// them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
-// or the `imagePath` JavaScript helper below.
-//
-// const images = require.context('../images', true)
-// const imagePath = (name) => images(name, true)
+  methods: {
+    async fetchArticles() {
+      await axios.get("/api/v1/articles").then(response => {
+        response.data.map((article) => {
+          this.articles.push(article);
+        });
+      });
+    }
+  }
+}
+</script>
