@@ -30,7 +30,6 @@ RSpec.describe "Api::V1::Auth::Registrations", type: :request do
       it "エラーする" do
         expect { subject }.to change { User.count }.by(0)
         res = JSON.parse(response.body)
-        binding.pry
         expect(response).to have_http_status(422)
         expect(res["errors"]["name"]).to include "can't be blank"
       end
