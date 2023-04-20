@@ -1,7 +1,7 @@
 # WonderfulEditor
 
 ## 概要
----
+
 Qiita風の記事作成アプリ
 
 学習した内容のアウトプットの為に作成しました。
@@ -10,7 +10,7 @@ Qiita風の記事作成アプリ
 
 
 ## 動作環境
----
+
 * Ruby: 2.7.2
 * Rails: 6.0.6.1
 * Node: 15.7.0
@@ -18,20 +18,19 @@ Qiita風の記事作成アプリ
 * DB: PostgreSQL
 
 ## 機能一覧
----
+
 * ユーザー登録
 * ログイン、ログアウト
 * マイページ機能
 * 記事の下書き機能
 
-![image](https://youtu.be/0iLKpjaWoxc)
-
 ## URL
----
+
 * ポートフォリオ: https://wonderful-editor-tbps.onrender.com
+* 仕様イメージ: https://youtu.be/0iLKpjaWoxc
 
 ## テスト内容
----
+
 * Rspec
 * 単体テスト(Model)
 * 結合テスト(Request)
