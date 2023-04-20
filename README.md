@@ -1,24 +1,37 @@
-# README
+# WonderfulEditor
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## 概要
+---
+Qiita風の記事作成アプリ
 
-Things you may want to cover:
+学習した内容のアウトプットの為に作成しました。
 
-* Ruby version
+簡単に記事の作成ができ、ユーザー同士で共有することができます。
 
-* System dependencies
 
-* Configuration
+## 動作環境
+---
+* Ruby: 2.7.2
+* Rails: 6.0.6.1
+* Node: 15.7.0
+* Vue.js: 2.6.11
+* DB: PostgreSQL
 
-* Database creation
+## 機能一覧
+---
+* ユーザー登録
+* ログイン、ログアウト
+* マイページ機能
+* 記事の下書き機能
 
-* Database initialization
+![image](https://youtu.be/0iLKpjaWoxc)
 
-* How to run the test suite
+## URL
+---
+* ポートフォリオ: https://wonderful-editor-tbps.onrender.com
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## テスト内容
+---
+* Rspec
+* 単体テスト(Model)
+* 結合テスト(Request)
